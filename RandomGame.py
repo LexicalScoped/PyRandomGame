@@ -1,19 +1,19 @@
 import random
 
-Config = { "Turns": 10, "Rand_Min": 1, "Rand_Max": 100, "Guesses": [] }
+Config = { "Turns": 10, "Rand_Min": 1, "Rand_Max": 100 }
 Number = int(random.randrange(Config["Rand_Min"], Config["Rand_Max"]))
-# Guesses = []
+Guesses = []
 
 while Config["Turns"] > 0:
-    print ("Turns Remaining: {} - Guesses: {}".format(Config["Turns"], Config["Guesses"]))
+    print ("Turns Remaining: {} - Guesses: {}".format(Config["Turns"], Guesses))
     UserInput = input("Guess a number between {} and {}: ".format(Config["Rand_Min"], Config["Rand_Max"]))
     if not UserInput.isdigit():
         print ("Invalid Guess")
         continue
     Guess = int(UserInput)
 
-    if Guess in range(Config["Rand_Min"], Config["Rand_Max"]) and Guess not in Config["Guesses"]:
-        Config["Guesses"].append(Guess)
+    if Guess in range(Config["Rand_Min"], Config["Rand_Max"]) and Guess not in Guesses:
+        Guesses.append(Guess)
         Config["Turns"] -= 1
         if Guess == Number:
             print ("You guessed the Number! Congratulations")
